@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services - LEGAL-AID HUB</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        :root { --primary: #2c3e50; --secondary: #3498db; --accent: #e74c3c; --light: #ecf0f1; --dark: #2c3e50; }
+        body { line-height: 1.6; color: #333; background-color: #f9f9f9; }
+        .container { width: 90%; max-width: 1200px; margin: 0 auto; padding: 0 15px; }
+        
+        /* Header */
+        header { background-color: var(--primary); color: white; padding: 1rem 0; position: sticky; top: 0; z-index: 100; }
+        .header-container { display: flex; justify-content: space-between; align-items: center; }
+        .logo { display: flex; align-items: center; gap: 10px; font-size: 1.5rem; font-weight: 700; }
+        .logo i { color: var(--secondary); }
+        .logo span { color: var(--secondary); }
+        nav ul { display: flex; list-style: none; }
+        nav ul li { margin-left: 1.5rem; }
+        nav ul li a { color: white; text-decoration: none; font-weight: 500; padding: 5px 10px; border-radius: 4px; transition: all 0.3s ease; }
+        nav ul li a:hover, nav ul li a.active { background-color: var(--secondary); }
+        .mobile-menu-btn { display: none; background: none; border: none; color: white; font-size: 1.5rem; cursor: pointer; }
+        
+        /* Page Hero */
+        .page-hero { background: linear-gradient(rgba(44, 62, 80, 0.85), rgba(44, 62, 80, 0.9)), url('https://images.unsplash.com/photo-1589391886085-8b6b0ac72a1a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80'); background-size: cover; background-position: center; color: white; padding: 4rem 0; text-align: center; }
+        .page-hero h1 { font-size: 2.8rem; margin-bottom: 1rem; }
+        
+        /* Breadcrumb */
+        .breadcrumb { background-color: var(--light); padding: 1rem 0; margin-bottom: 2rem; }
+        .breadcrumb ul { list-style: none; display: flex; }
+        .breadcrumb ul li { margin-right: 0.5rem; font-size: 0.9rem; }
+        .breadcrumb ul li:after { content: '/'; margin-left: 0.5rem; color: #aaa; }
+        .breadcrumb ul li:last-child:after { content: ''; }
+        .breadcrumb a { color: var(--secondary); text-decoration: none; }
+        .breadcrumb a:hover { text-decoration: underline; }
+        
+        /* Page Content */
+        .page-content { padding: 4rem 0; }
+        .services-content { max-width: 800px; margin: 0 auto; }
+        .services-content h2 { color: var(--primary); margin: 2rem 0 1rem; }
+        .services-content p { margin-bottom: 1.5rem; line-height: 1.8; }
+        
+        /* Service Details */
+        .service-details { background: white; border-radius: 8px; padding: 2rem; margin-bottom: 2rem; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+        .service-details h3 { color: var(--primary); margin-bottom: 1rem; display: flex; align-items: center; }
+        .service-details h3 i { color: var(--secondary); margin-right: 10px; }
+        
+        /* Process */
+        .process-steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin: 3rem 0; }
+        .step { text-align: center; padding: 1.5rem; background: white; border-radius: 8px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+        .step-number { width: 40px; height: 40px; background: var(--secondary); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; font-weight: bold; }
+        
+        /* Footer */
+        footer { background-color: var(--dark); color: white; padding: 3rem 0 1.5rem; }
+        .footer-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-bottom: 2rem; }
+        .footer-logo { font-size: 1.8rem; margin-bottom: 1rem; }
+        .footer-column h4 { color: var(--secondary); margin-bottom: 1.2rem; font-size: 1.2rem; }
+        .footer-links { list-style: none; }
+        .footer-links li { margin-bottom: 0.8rem; }
+        .footer-links a { color: #ddd; text-decoration: none; transition: color 0.3s ease; }
+        .footer-links a:hover { color: var(--secondary); }
+        .contact-info { display: flex; align-items: flex-start; margin-bottom: 1rem; }
+        .contact-info i { color: var(--secondary); margin-right: 10px; margin-top: 5px; }
+        .copyright { text-align: center; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.1); font-size: 0.9rem; color: #aaa; }
+        
+        @media (max-width: 768px) {
+            .header-container { flex-direction: column; text-align: center; }
+            .logo { margin-bottom: 1rem; }
+            nav ul { flex-wrap: wrap; justify-content: center; }
+            nav ul li { margin: 0.5rem; }
+            .mobile-menu-btn { display: block; position: absolute; top: 1rem; right: 1rem; }
+            .mobile-menu { display: none; width: 100%; }
+            .mobile-menu.active { display: block; }
+            .mobile-menu ul { flex-direction: column; margin-top: 1rem; }
+            .mobile-menu ul li { margin: 0.5rem 0; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <i class="fas fa-balance-scale"></i>
+                <h1>LEGAL<span>AID</span> HUB</h1>
+            </div>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav class="mobile-menu" id="mobileMenu">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="services.html" class="active">Our Services</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="resources.html">Resources</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="breadcrumb">
+        <div class="container">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li>Our Services</li>
+            </ul>
+        </div>
+    </div>
+
+    <section class="page-hero">
+        <div class="container">
+            <h1>Our Legal Services</h1>
+            <p>Comprehensive free legal assistance for innovators, farmers, artisans, and underserved communities</p>
+        </div>
+    </section>
+
+    <main class="page-content">
+        <div class="container">
+            <div class="services-content">
+                <h2>How We Help</h2>
+                <p>LEGAL-AID HUB provides a wide range of free legal services tailored to the specific needs of underserved communities. Our volunteer lawyers offer expert guidance in multiple areas of law.</p>
+                
+                <div class="process-steps">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <h3>Consultation</h3>
+                        <p>Free initial consultation to understand your legal needs</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <h3>Assessment</h3>
+                        <p>Our legal team assesses your case and determines the best approach</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <h3>Assistance</h3>
+                        <p>We provide the legal help you need, from advice to representation</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">4</div>
+                        <h3>Follow-up</h3>
+                        <p>We ensure you have ongoing support throughout your legal journey</p>
+                    </div>
+                </div>
+                
+                <div id="business" class="service-details">
+                    <h3><i class="fas fa-briefcase"></i> Business Legal Help for Innovators</h3>
+                    <p>We support educated innovators and entrepreneurs starting businesses with:</p>
+                    <ul style="margin-left: 2rem; margin-bottom: 1rem;">
+                        <li><strong>Business Formation:</strong> Help with registering LLCs, corporations, partnerships</li>
+                        <li><strong>Contract Drafting & Review:</strong> Client agreements, vendor contracts, partnership agreements</li>
+                        <li><strong>Intellectual Property:</strong> Trademark registration, copyright protection, patent guidance</li>
+                        <li><strong>Regulatory Compliance:</strong> Navigating business regulations and licenses</li>
+                        <li><strong>Employment Law:</strong> Drafting employment contracts and understanding labor laws</li>
+                    </ul>
+                    <p><strong>Who qualifies:</strong> Entrepreneurs with limited financial resources, startups in early stages, innovators from underserved communities.</p>
+                </div>
+                
+                <div id="farmers" class="service-details">
+                    <h3><i class="fas fa-tractor"></i> Farmers & Land Rights Protection</h3>
+                    <p>We help farming communities secure and protect their most valuable asset: land.</p>
+                    <ul style="margin-left: 2rem; margin-bottom: 1rem;">
+                        <li><strong>Land Title Assistance:</strong> Help securing and verifying land titles</li>
+                        <li><strong>Agricultural Contracts:</strong> Reviewing and drafting farming agreements</li>
+                        <li><strong>Dispute Resolution:</strong> Mediation for land boundary and ownership disputes</li>
+                        <li><strong>Inheritance Planning:</strong> Ensuring land passes correctly to next generations</li>
+                        <li><strong>Government Program Navigation:</strong> Assistance with agricultural subsidies and programs</li>
+                    </ul>
+                    <p><strong>Who qualifies:</strong> Small-scale farmers, agricultural workers, farming families facing land disputes.</p>
+                </div>
+                
+                <div id="artisans" class="service-details">
+                    <h3><i class="fas fa-hands-helping"></i> Artisan Support & Protection</h3>
+                    <p>We empower artisans to protect their creative works and build sustainable businesses.</p>
+                    <ul style="margin-left: 2rem; margin-bottom: 1rem;">
+                        <li><strong>Copyright Protection:</strong> Securing rights to traditional designs and crafts</li>
+                        <li><strong>Fair Trade Agreements:</strong> Reviewing contracts with retailers and exporters</li>
+                        <li><strong>Business Formation:</strong> Help establishing cooperatives or small businesses</li>
+                        <li><strong>Contract Review:</strong> Ensuring fair terms in exhibition and sales agreements</li>
+                        <li><strong>Intellectual Property Education:</strong> Workshops on protecting creative works</li>
+                    </ul>
+                    <p><strong>Who qualifies:</strong> Traditional artisans, craft workers, cultural heritage practitioners.</p>
+                </div>
+                
+                <div id="housing" class="service-details">
+                    <h3><i class="fas fa-home"></i> Housing & Tenancy Rights</h3>
+                    <p>We protect tenants and homeowners facing housing challenges.</p>
+                    <ul style="margin-left: 2rem; margin-bottom: 1rem;">
+                        <li><strong>Eviction Defense:</strong> Legal representation for wrongful evictions</li>
+                        <li><strong>Lease Review:</strong> Analysis of rental agreements for fairness</li>
+                        <li><strong>Housing Discrimination:</strong> Addressing discriminatory housing practices</li>
+                        <li><strong>Foreclosure Prevention:</strong> Assistance for homeowners at risk of foreclosure</li>
+                        <li><strong>Repair & Habitability Issues:</strong> Ensuring landlords meet legal obligations</li>
+                    </ul>
+                </div>
+                
+                <div id="family" class="service-details">
+                    <h3><i class="fas fa-users"></i> Family Law Assistance</h3>
+                    <p>We provide support for family-related legal matters.</p>
+                    <ul style="margin-left: 2rem; margin-bottom: 1rem;">
+                        <li><strong>Divorce & Separation:</strong> Guidance through the legal process</li>
+                        <li><strong>Child Custody & Support:</strong> Protecting children's best interests</li>
+                        <li><strong>Domestic Violence Protection:</strong> Help obtaining restraining orders</li>
+                        <li><strong>Adoption Assistance:</strong> Guidance through adoption procedures</li>
+                        <li><strong>Guardianship:</strong> Establishing legal guardianship when needed</li>
+                    </ul>
+                </div>
+                
+                <div style="background: var(--primary); color: white; padding: 2rem; border-radius: 10px; margin-top: 3rem; text-align: center;">
+                    <h3>Ready to Get Help?</h3>
+                    <p>If you need legal assistance and meet our eligibility criteria, we're here to help. Our services are completely free for qualifying individuals and communities.</p>
+                    <a href="contact.html" class="btn" style="background: var(--accent); color: white; padding: 12px 28px; border-radius: 5px; text-decoration: none; font-weight: 600; display: inline-block; margin-top: 1rem;">Request Legal Assistance</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-column">
+                    <div class="footer-logo"><i class="fas fa-balance-scale"></i> LEGAL-AID HUB</div>
+                    <p>Providing free legal services to innovators, farmers, artisans, and underserved communities since 2020.</p>
+                </div>
+                <div class="footer-column">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li><li><a href="about.html">About Us</a></li><li><a href="services.html">Our Services</a></li><li><a href="contact.html">Contact Us</a></li><li><a href="resources.html">Legal Resources</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Our Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="services.html#business">Business Legal Help</a></li><li><a href="services.html#farmers">Farmers & Land Rights</a></li><li><a href="services.html#artisans">Artisan Support</a></li><li><a href="services.html#housing">Housing & Tenancy</a></li><li><a href="services.html#family">Family Law</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Contact Info</h4>
+                    <div class="contact-info"><i class="fas fa-map-marker-alt"></i><div>123 Justice Street, Law City, LC 10101</div></div>
+                    <div class="contact-info"><i class="fas fa-phone"></i><div>+1 (800) 555-LEGAL</div></div>
+                    <div class="contact-info"><i class="fas fa-envelope"></i><div>help@legalaidhub.org</div></div>
+                </div>
+            </div>
+            <div class="copyright"><p>&copy; 2023 LEGAL-AID HUB. All rights reserved.</p></div>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('mobileMenuBtn').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            mobileMenu.classList.toggle('active');
+            const icon = this.querySelector('i');
+            if (icon.classList.contains('fa-bars')) {
+                icon.classList.remove('fa-bars'); icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times'); icon.classList.add('fa-bars');
+            }
+        });
+        document.querySelectorAll('#mobileMenu a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('mobileMenu').classList.remove('active');
+                document.querySelector('#mobileMenuBtn i').classList.remove('fa-times');
+                document.querySelector('#mobileMenuBtn i').classList.add('fa-bars');
+            });
+        });
+    </script>
+</body>
+</html>

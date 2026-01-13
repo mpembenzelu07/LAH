@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Legal Resources - LEGAL-AID HUB</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        :root { --primary: #2c3e50; --secondary: #3498db; --accent: #e74c3c; --light: #ecf0f1; --dark: #2c3e50; }
+        body { line-height: 1.6; color: #333; background-color: #f9f9f9; }
+        .container { width: 90%; max-width: 1200px; margin: 0 auto; padding: 0 15px; }
+        
+        /* Header */
+        header { background-color: var(--primary); color: white; padding: 1rem 0; position: sticky; top: 0; z-index: 100; }
+        .header-container { display: flex; justify-content: space-between; align-items: center; }
+        .logo { display: flex; align-items: center; gap: 10px; font-size: 1.5rem; font-weight: 700; }
+        .logo i { color: var(--secondary); }
+        .logo span { color: var(--secondary); }
+        nav ul { display: flex; list-style: none; }
+        nav ul li { margin-left: 1.5rem; }
+        nav ul li a { color: white; text-decoration: none; font-weight: 500; padding: 5px 10px; border-radius: 4px; transition: all 0.3s ease; }
+        nav ul li a:hover, nav ul li a.active { background-color: var(--secondary); }
+        .mobile-menu-btn { display: none; background: none; border: none; color: white; font-size: 1.5rem; cursor: pointer; }
+        
+        /* Page Hero */
+        .page-hero { background: linear-gradient(rgba(44, 62, 80, 0.85), rgba(44, 62, 80, 0.9)), url('https://images.unsplash.com/photo-1589391886085-8b6b0ac72a1a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80'); background-size: cover; background-position: center; color: white; padding: 4rem 0; text-align: center; }
+        .page-hero h1 { font-size: 2.8rem; margin-bottom: 1rem; }
+        
+        /* Breadcrumb */
+        .breadcrumb { background-color: var(--light); padding: 1rem 0; margin-bottom: 2rem; }
+        .breadcrumb ul { list-style: none; display: flex; }
+        .breadcrumb ul li { margin-right: 0.5rem; font-size: 0.9rem; }
+        .breadcrumb ul li:after { content: '/'; margin-left: 0.5rem; color: #aaa; }
+        .breadcrumb ul li:last-child:after { content: ''; }
+        .breadcrumb a { color: var(--secondary); text-decoration: none; }
+        .breadcrumb a:hover { text-decoration: underline; }
+        
+        /* Page Content */
+        .page-content { padding: 4rem 0; }
+        .resources-content { max-width: 800px; margin: 0 auto; }
+        .resources-content h2 { color: var(--primary); margin: 2rem 0 1rem; }
+        
+        /* Resources List */
+        .resources-list { list-style: none; }
+        .resources-list li { background: white; margin-bottom: 1rem; padding: 1.5rem; border-radius: 8px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+        .resources-list h4 { color: var(--primary); margin-bottom: 0.5rem; }
+        .resources-list a { color: var(--secondary); text-decoration: none; font-weight: 500; }
+        .resources-list a:hover { text-decoration: underline; }
+        .resource-category { background: var(--primary); color: white; padding: 1rem; border-radius: 8px; margin: 2rem 0 1rem; }
+        
+        /* Download Section */
+        .download-section { background: #f8f9fa; padding: 2rem; border-radius: 10px; margin: 3rem 0; }
+        .download-item { display: flex; align-items: center; background: white; padding: 1rem; border-radius: 8px; margin-bottom: 1rem; }
+        .download-icon { background: var(--secondary); color: white; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 1rem; }
+        
+        /* Footer */
+        footer { background-color: var(--dark); color: white; padding: 3rem 0 1.5rem; }
+        .footer-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-bottom: 2rem; }
+        .footer-logo { font-size: 1.8rem; margin-bottom: 1rem; }
+        .footer-column h4 { color: var(--secondary); margin-bottom: 1.2rem; font-size: 1.2rem; }
+        .footer-links { list-style: none; }
+        .footer-links li { margin-bottom: 0.8rem; }
+        .footer-links a { color: #ddd; text-decoration: none; transition: color 0.3s ease; }
+        .footer-links a:hover { color: var(--secondary); }
+        .contact-info { display: flex; align-items: flex-start; margin-bottom: 1rem; }
+        .contact-info i { color: var(--secondary); margin-right: 10px; margin-top: 5px; }
+        .copyright { text-align: center; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.1); font-size: 0.9rem; color: #aaa; }
+        
+        @media (max-width: 768px) {
+            .header-container { flex-direction: column; text-align: center; }
+            .logo { margin-bottom: 1rem; }
+            nav ul { flex-wrap: wrap; justify-content: center; }
+            nav ul li { margin: 0.5rem; }
+            .mobile-menu-btn { display: block; position: absolute; top: 1rem; right: 1rem; }
+            .mobile-menu { display: none; width: 100%; }
+            .mobile-menu.active { display: block; }
+            .mobile-menu ul { flex-direction: column; margin-top: 1rem; }
+            .mobile-menu ul li { margin: 0.5rem 0; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <i class="fas fa-balance-scale"></i>
+                <h1>LEGAL<span>AID</span> HUB</h1>
+            </div>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav class="mobile-menu" id="mobileMenu">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="services.html">Our Services</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="resources.html" class="active">Resources</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="breadcrumb">
+        <div class="container">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li>Legal Resources</li>
+            </ul>
+        </div>
+    </div>
+
+    <section class="page-hero">
+        <div class="container">
+            <h1>Free Legal Resources</h1>
+            <p>Self-help guides, templates, and educational materials for common legal issues</p>
+        </div>
+    </section>
+
+    <main class="page-content">
+        <div class="container">
+            <div class="resources-content">
+                <h2>Self-Help Legal Resources</h2>
+                <p>These free resources can help you understand your legal rights and navigate common legal issues. Remember, these materials are for informational purposes only and do not constitute legal advice.</p>
+                
+                <div class="resource-category">
+                    <h3>For Innovators & Entrepreneurs</h3>
+                </div>
+                <ul class="resources-list">
+                    <li>
+                        <h4>Simple Business Contract Template</h4>
+                        <p>A basic template for service agreements between small businesses and clients. Includes explanations of each section.</p>
+                        <a href="#">Download PDF <i class="fas fa-download"></i></a>
+                    </li>
+                    <li>
+                        <h4>Guide to Business Registration</h4>
+                        <p>Step-by-step guide to registering your business as an LLC, corporation, or sole proprietorship.</p>
+                        <a href="#">Download PDF <i class="fas fa-download"></i></a>
+                    </li>
+                    <li>
+                        <h4>Intellectual Property Basics</h4>
+                        <p>Understanding trademarks, copyrights, and patents for small business owners.</p>
+                        <a href="#">Download PDF <i class="fas fa-download"></i></a>
+                    </li>
+                    <li>
+                        <h4>Employment Law Checklist</h4>
+                        <p>Essential legal considerations when hiring your first employees.</p>
+                        <a href="#">View Online <i class="fas fa-external-link-alt"></i></a>
+                    </li>
+                </ul>
+                
+                <div class="resource-category">
+                    <h3>For Farmers & Agricultural Workers</h3>
+                </div>
+                <ul class="resources-list">
+                    <li>
+                        <h4>Land Rights Protection Guide</h4>
+                        <p>Understanding property rights, titles, and how to secure your land legally.</p>
+                        <a href="#">Download PDF <i class="fas fa-download"></i></a>
+                    </li>
+                    <li>
+                        <h4>Basic Agricultural Contract Template</h4>
+                        <p>Template for crop-sharing agreements, land leasing, and produce sales contracts.</p>
+                        <a href="#">Download PDF <i class="fas fa-download"></i></a>
+                    </li>
+                    <li>
+                        <h4>Water Rights Information Sheet</h4>
+                        <p>Understanding legal rights to water sources for agricultural use.</p>
+                        <a href="#">View Online <i class="fas fa-external-link-alt"></i></a>
+                    </li>
+                    <li>
+                        <h4>Dispute Resolution for Land Conflicts</h4>
+                        <p>Steps to resolve boundary disputes and other land-related conflicts.</p>
+                        <a href="#">Download PDF <i class="fas fa-download"></i></a>
+                    </li>
+                </ul>
+                
+                <div class="resource-category">
+                    <h3>For Artisans & Creative Workers</h3>
+                </div>
+                <ul class="resources-list">
+                    <li>
+                        <h4>Copyright Protection for Artisans</h4>
+                        <p>How to protect your traditional designs and creative works.</p>
+                        <a href="#">Download PDF <i class="fas fa-download"></i></a>
+                    </li>
+                    <li>
+                        <h4>Fair Trade Agreement Checklist</h4>
+                        <p>What to look for in contracts with retailers and exporters.</p>
+                        <a href="#">View Online <i class="fas fa-external-link-alt"></i></a>
+                    </li>
+                    <li>
+                        <h4>Pricing Your Work Legally</h4>
+                        <p>Understanding fair pricing, taxes, and business regulations for artisans.</p>
+                        <a href="#">Download PDF <i class="fas fa-download"></i></a>
+                    </li>
+                    <li>
+                        <h4>Cooperative Formation Guide</h4>
+                        <p>Steps to legally form an artisan cooperative for collective bargaining and sales.</p>
+                        <a href="#">Download PDF <i class="fas fa-download"></i></a>
+                    </li>
+                </ul>
+                
+                <div class="download-section">
+                    <h3>Essential Legal Forms & Templates</h3>
+                    <p>Download these commonly needed legal forms:</p>
+                    
+                    <div class="download-item">
+                        <div class="download-icon"><i class="fas fa-file-contract"></i></div>
+                        <div>
+                            <h4>Basic Rental Agreement</h4>
+                            <p>Simple residential lease agreement template</p>
+                        </div>
+                    </div>
+                    
+                    <div class="download-item">
+                        <div class="download-icon"><i class="fas fa-handshake"></i></div>
+                        <div>
+                            <h4>Service Agreement Template</h4>
+                            <p>For freelancers and small service providers</p>
+                        </div>
+                    </div>
+                    
+                    <div class="download-item">
+                        <div class="download-icon"><i class="fas fa-users"></i></div>
+                        <div>
+                            <h4>Partnership Agreement</h4>
+                            <p>Basic template for business partnerships</p>
+                        </div>
+                    </div>
+                    
+                    <div class="download-item">
+                        <div class="download-icon"><i class="fas fa-balance-scale-left"></i></div>
+                        <div>
+                            <h4>Will Template</h4>
+                            <p>Simple last will and testament template</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div style="background: var(--primary); color: white; padding: 2rem; border-radius: 10px; margin-top: 3rem;">
+                    <h3>Important Legal Information</h3>
+                    <p><strong>Disclaimer:</strong> The resources provided on this page are for informational purposes only and do not constitute legal advice. The law changes frequently and varies by jurisdiction. You should not act or rely on any information contained here without seeking the advice of an attorney.</p>
+                    <p style="margin-top: 1rem;">If you have a specific legal problem, please <a href="contact.html" style="color: var(--secondary); font-weight: bold;">contact us</a> for assistance or consult with a licensed attorney in your area.</p>
+                </div>
+                
+                <div style="background: #f8f9fa; padding: 2rem; border-radius: 10px; margin-top: 3rem; border-left: 5px solid var(--accent);">
+                    <h3>Additional Online Resources</h3>
+                    <ul class="resources-list" style="background: transparent; box-shadow: none; padding: 0;">
+                        <li><a href="https://www.lawhelp.org" target="_blank">LawHelp.org <i class="fas fa-external-link-alt"></i></a> - Free legal information by state</li>
+                        <li><a href="https://www.probono.net" target="_blank">ProBono.net <i class="fas fa-external-link-alt"></i></a> - Pro bono legal resources</li>
+                        <li><a href="https://www.nolo.com" target="_blank">Nolo.com <i class="fas fa-external-link-alt"></i></a> - Free legal information</li>
+                        <li><a href="https://www.usa.gov/legal-aid" target="_blank">USA.gov Legal Aid <i class="fas fa-external-link-alt"></i></a> - Government legal resources</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-column">
+                    <div class="footer-logo"><i class="fas fa-balance-scale"></i> LEGAL-AID HUB</div>
+                    <p>Providing free legal services to innovators, farmers, artisans, and underserved communities since 2020.</p>
+                </div>
+                <div class="footer-column">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li><li><a href="about.html">About Us</a></li><li><a href="services.html">Our Services</a></li><li><a href="contact.html">Contact Us</a></li><li><a href="resources.html">Legal Resources</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Our Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="services.html#business">Business Legal Help</a></li><li><a href="services.html#farmers">Farmers & Land Rights</a></li><li><a href="services.html#artisans">Artisan Support</a></li><li><a href="services.html#housing">Housing & Tenancy</a></li><li><a href="services.html#family">Family Law</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Contact Info</h4>
+                    <div class="contact-info"><i class="fas fa-map-marker-alt"></i><div>123 Justice Street, Law City, LC 10101</div></div>
+                    <div class="contact-info"><i class="fas fa-phone"></i><div>+1 (800) 555-LEGAL</div></div>
+                    <div class="contact-info"><i class="fas fa-envelope"></i><div>help@legalaidhub.org</div></div>
+                </div>
+            </div>
+            <div class="copyright"><p>&copy; 2023 LEGAL-AID HUB. All rights reserved.</p></div>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('mobileMenuBtn').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            mobileMenu.classList.toggle('active');
+            const icon = this.querySelector('i');
+            if (icon.classList.contains('fa-bars')) {
+                icon.classList.remove('fa-bars'); icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times'); icon.classList.add('fa-bars');
+            }
+        });
+        document.querySelectorAll('#mobileMenu a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('mobileMenu').classList.remove('active');
+                document.querySelector('#mobileMenuBtn i').classList.remove('fa-times');
+                document.querySelector('#mobileMenuBtn i').classList.add('fa-bars');
+            });
+        });
+        
+        // Simulate downloads
+        document.querySelectorAll('.resources-list a, .download-item').forEach(item => {
+            item.addEventListener('click', function(e) {
+                if(this.tagName === 'A' && this.getAttribute('href') === '#') {
+                    e.preventDefault();
+                    alert('This is a demonstration. In a real website, this would download a PDF file.');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

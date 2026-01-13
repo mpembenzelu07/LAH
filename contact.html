@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - LEGAL-AID HUB</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        :root { --primary: #2c3e50; --secondary: #3498db; --accent: #e74c3c; --light: #ecf0f1; --dark: #2c3e50; }
+        body { line-height: 1.6; color: #333; background-color: #f9f9f9; }
+        .container { width: 90%; max-width: 1200px; margin: 0 auto; padding: 0 15px; }
+        
+        /* Header */
+        header { background-color: var(--primary); color: white; padding: 1rem 0; position: sticky; top: 0; z-index: 100; }
+        .header-container { display: flex; justify-content: space-between; align-items: center; }
+        .logo { display: flex; align-items: center; gap: 10px; font-size: 1.5rem; font-weight: 700; }
+        .logo i { color: var(--secondary); }
+        .logo span { color: var(--secondary); }
+        nav ul { display: flex; list-style: none; }
+        nav ul li { margin-left: 1.5rem; }
+        nav ul li a { color: white; text-decoration: none; font-weight: 500; padding: 5px 10px; border-radius: 4px; transition: all 0.3s ease; }
+        nav ul li a:hover, nav ul li a.active { background-color: var(--secondary); }
+        .mobile-menu-btn { display: none; background: none; border: none; color: white; font-size: 1.5rem; cursor: pointer; }
+        
+        /* Page Hero */
+        .page-hero { background: linear-gradient(rgba(44, 62, 80, 0.85), rgba(44, 62, 80, 0.9)), url('https://images.unsplash.com/photo-1589391886085-8b6b0ac72a1a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80'); background-size: cover; background-position: center; color: white; padding: 4rem 0; text-align: center; }
+        .page-hero h1 { font-size: 2.8rem; margin-bottom: 1rem; }
+        
+        /* Breadcrumb */
+        .breadcrumb { background-color: var(--light); padding: 1rem 0; margin-bottom: 2rem; }
+        .breadcrumb ul { list-style: none; display: flex; }
+        .breadcrumb ul li { margin-right: 0.5rem; font-size: 0.9rem; }
+        .breadcrumb ul li:after { content: '/'; margin-left: 0.5rem; color: #aaa; }
+        .breadcrumb ul li:last-child:after { content: ''; }
+        .breadcrumb a { color: var(--secondary); text-decoration: none; }
+        .breadcrumb a:hover { text-decoration: underline; }
+        
+        /* Page Content */
+        .page-content { padding: 4rem 0; }
+        .contact-content { max-width: 800px; margin: 0 auto; }
+        .contact-content h2 { color: var(--primary); margin: 2rem 0 1rem; }
+        
+        /* Contact Form */
+        .contact-form { background: white; border-radius: 8px; padding: 2rem; box-shadow: 0 5px 15px rgba(0,0,0,0.05); margin-bottom: 3rem; }
+        .form-group { margin-bottom: 1.5rem; }
+        .form-group label { display: block; margin-bottom: 0.5rem; font-weight: 600; color: var(--primary); }
+        .form-control { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 5px; font-size: 1rem; transition: border 0.3s ease; }
+        .form-control:focus { border-color: var(--secondary); outline: none; }
+        textarea.form-control { min-height: 150px; resize: vertical; }
+        .btn { display: inline-block; background-color: var(--accent); color: white; padding: 12px 28px; border-radius: 5px; text-decoration: none; font-weight: 600; border: none; cursor: pointer; transition: all 0.3s ease; font-size: 1rem; }
+        .btn:hover { background-color: #c0392b; }
+        .btn-full { width: 100%; }
+        
+        /* Contact Info */
+        .contact-info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-top: 3rem; }
+        .contact-card { background: white; padding: 1.5rem; border-radius: 8px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); text-align: center; }
+        .contact-card i { font-size: 2rem; color: var(--secondary); margin-bottom: 1rem; }
+        
+        /* Footer */
+        footer { background-color: var(--dark); color: white; padding: 3rem 0 1.5rem; }
+        .footer-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-bottom: 2rem; }
+        .footer-logo { font-size: 1.8rem; margin-bottom: 1rem; }
+        .footer-column h4 { color: var(--secondary); margin-bottom: 1.2rem; font-size: 1.2rem; }
+        .footer-links { list-style: none; }
+        .footer-links li { margin-bottom: 0.8rem; }
+        .footer-links a { color: #ddd; text-decoration: none; transition: color 0.3s ease; }
+        .footer-links a:hover { color: var(--secondary); }
+        .contact-info { display: flex; align-items: flex-start; margin-bottom: 1rem; }
+        .contact-info i { color: var(--secondary); margin-right: 10px; margin-top: 5px; }
+        .copyright { text-align: center; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.1); font-size: 0.9rem; color: #aaa; }
+        
+        @media (max-width: 768px) {
+            .header-container { flex-direction: column; text-align: center; }
+            .logo { margin-bottom: 1rem; }
+            nav ul { flex-wrap: wrap; justify-content: center; }
+            nav ul li { margin: 0.5rem; }
+            .mobile-menu-btn { display: block; position: absolute; top: 1rem; right: 1rem; }
+            .mobile-menu { display: none; width: 100%; }
+            .mobile-menu.active { display: block; }
+            .mobile-menu ul { flex-direction: column; margin-top: 1rem; }
+            .mobile-menu ul li { margin: 0.5rem 0; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <i class="fas fa-balance-scale"></i>
+                <h1>LEGAL<span>AID</span> HUB</h1>
+            </div>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav class="mobile-menu" id="mobileMenu">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="services.html">Our Services</a></li>
+                    <li><a href="contact.html" class="active">Contact</a></li>
+                    <li><a href="resources.html">Resources</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="breadcrumb">
+        <div class="container">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li>Contact Us</li>
+            </ul>
+        </div>
+    </div>
+
+    <section class="page-hero">
+        <div class="container">
+            <h1>Contact LEGAL-AID HUB</h1>
+            <p>Get in touch for free legal assistance or to support our mission</p>
+        </div>
+    </section>
+
+    <main class="page-content">
+        <div class="container">
+            <div class="contact-content">
+                <h2>Request Legal Assistance</h2>
+                <p>If you need legal help and believe you qualify for our free services, please fill out the form below. Our team will review your request and contact you within 3 business days.</p>
+                
+                <div class="contact-form">
+                    <form id="legalRequestForm">
+                        <div class="form-group">
+                            <label for="fullName">Full Name *</label>
+                            <input type="text" id="fullName" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" class="form-control">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="category">Legal Issue Category *</label>
+                            <select id="category" class="form-control" required>
+                                <option value="">Select a category</option>
+                                <option value="business">Business/Innovator Legal Help</option>
+                                <option value="farmers">Farmers & Land Rights</option>
+                                <option value="artisans">Artisan Support</option>
+                                <option value="housing">Housing & Tenancy</option>
+                                <option value="family">Family Law</option>
+                                <option value="other">Other Legal Issue</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="description">Brief Description of Your Legal Issue *</label>
+                            <textarea id="description" class="form-control" required></textarea>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="income">Annual Household Income (for eligibility determination) *</label>
+                            <select id="income" class="form-control" required>
+                                <option value="">Select income range</option>
+                                <option value="under25">Under $25,000</option>
+                                <option value="25-40">$25,000 - $40,000</option>
+                                <option value="40-60">$40,000 - $60,000</option>
+                                <option value="over60">Over $60,000</option>
+                            </select>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-full">Submit Request for Legal Assistance</button>
+                    </form>
+                </div>
+                
+                <h2>Other Ways to Reach Us</h2>
+                <p>If you prefer not to use the form, you can contact us through these methods:</p>
+                
+                <div class="contact-info-grid">
+                    <div class="contact-card">
+                        <i class="fas fa-phone"></i>
+                        <h3>Phone</h3>
+                        <p>+1 (800) 555-LEGAL</p>
+                        <p>Monday-Friday: 9am-5pm</p>
+                    </div>
+                    
+                    <div class="contact-card">
+                        <i class="fas fa-envelope"></i>
+                        <h3>Email</h3>
+                        <p>help@legalaidhub.org</p>
+                        <p>For general inquiries</p>
+                    </div>
+                    
+                    <div class="contact-card">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <h3>Office</h3>
+                        <p>123 Justice Street</p>
+                        <p>Law City, LC 10101</p>
+                        <p>By appointment only</p>
+                    </div>
+                    
+                    <div class="contact-card">
+                        <i class="fas fa-clock"></i>
+                        <h3>Online Chat</h3>
+                        <p>Available on our website</p>
+                        <p>Monday-Friday: 10am-4pm</p>
+                    </div>
+                </div>
+                
+                <div style="background: var(--primary); color: white; padding: 2rem; border-radius: 10px; margin-top: 3rem;">
+                    <h3>Eligibility Information</h3>
+                    <p>Our free legal services are available to individuals and families who meet income eligibility requirements. We prioritize assistance for:</p>
+                    <ul style="margin-left: 2rem; margin-top: 1rem;">
+                        <li>Low-income individuals and families</li>
+                        <li>Innovators and entrepreneurs from underserved communities</li>
+                        <li>Farmers and agricultural workers</li>
+                        <li>Artisans and traditional craft workers</li>
+                        <li>Individuals facing urgent legal crises</li>
+                    </ul>
+                    <p style="margin-top: 1rem;">If you're unsure whether you qualify, please still submit a request. We review all applications and may be able to refer you to other resources if we cannot assist directly.</p>
+                </div>
+                
+                <div style="background: #f8f9fa; padding: 2rem; border-radius: 10px; margin-top: 3rem; border-left: 5px solid var(--secondary);">
+                    <h3>For Lawyers Wanting to Volunteer</h3>
+                    <p>Are you a legal professional interested in volunteering with LEGAL-AID HUB? We're always looking for lawyers, paralegals, and law students to join our network of volunteers.</p>
+                    <p>Please email <strong>volunteer@legalaidhub.org</strong> with your contact information and areas of legal expertise.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-column">
+                    <div class="footer-logo"><i class="fas fa-balance-scale"></i> LEGAL-AID HUB</div>
+                    <p>Providing free legal services to innovators, farmers, artisans, and underserved communities since 2020.</p>
+                </div>
+                <div class="footer-column">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li><li><a href="about.html">About Us</a></li><li><a href="services.html">Our Services</a></li><li><a href="contact.html">Contact Us</a></li><li><a href="resources.html">Legal Resources</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Our Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="services.html#business">Business Legal Help</a></li><li><a href="services.html#farmers">Farmers & Land Rights</a></li><li><a href="services.html#artisans">Artisan Support</a></li><li><a href="services.html#housing">Housing & Tenancy</a></li><li><a href="services.html#family">Family Law</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Contact Info</h4>
+                    <div class="contact-info"><i class="fas fa-map-marker-alt"></i><div>123 Justice Street, Law City, LC 10101</div></div>
+                    <div class="contact-info"><i class="fas fa-phone"></i><div>+1 (800) 555-LEGAL</div></div>
+                    <div class="contact-info"><i class="fas fa-envelope"></i><div>help@legalaidhub.org</div></div>
+                </div>
+            </div>
+            <div class="copyright"><p>&copy; 2023 LEGAL-AID HUB. All rights reserved.</p></div>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('mobileMenuBtn').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            mobileMenu.classList.toggle('active');
+            const icon = this.querySelector('i');
+            if (icon.classList.contains('fa-bars')) {
+                icon.classList.remove('fa-bars'); icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times'); icon.classList.add('fa-bars');
+            }
+        });
+        document.querySelectorAll('#mobileMenu a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('mobileMenu').classList.remove('active');
+                document.querySelector('#mobileMenuBtn i').classList.remove('fa-times');
+                document.querySelector('#mobileMenuBtn i').classList.add('fa-bars');
+            });
+        });
+        
+        // Form submission
+        document.getElementById('legalRequestForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your request! We will contact you within 3 business days to discuss your legal needs.');
+            this.reset();
+        });
+    </script>
+</body>
+</html>

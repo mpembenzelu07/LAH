@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LEGAL-AID HUB - Free Legal Services Platform</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        :root { --primary: #2c3e50; --secondary: #3498db; --accent: #e74c3c; --light: #ecf0f1; --dark: #2c3e50; }
+        body { line-height: 1.6; color: #333; background-color: #f9f9f9; }
+        .container { width: 90%; max-width: 1200px; margin: 0 auto; padding: 0 15px; }
+        
+        /* Header */
+        header { background-color: var(--primary); color: white; padding: 1rem 0; position: sticky; top: 0; z-index: 100; }
+        .header-container { display: flex; justify-content: space-between; align-items: center; }
+        .logo { display: flex; align-items: center; gap: 10px; font-size: 1.5rem; font-weight: 700; }
+        .logo i { color: var(--secondary); }
+        .logo span { color: var(--secondary); }
+        nav ul { display: flex; list-style: none; }
+        nav ul li { margin-left: 1.5rem; }
+        nav ul li a { color: white; text-decoration: none; font-weight: 500; padding: 5px 10px; border-radius: 4px; transition: all 0.3s ease; }
+        nav ul li a:hover, nav ul li a.active { background-color: var(--secondary); }
+        .mobile-menu-btn { display: none; background: none; border: none; color: white; font-size: 1.5rem; cursor: pointer; }
+        
+        /* Hero */
+        .hero { background: linear-gradient(rgba(44, 62, 80, 0.85), rgba(44, 62, 80, 0.9)), url('https://images.unsplash.com/photo-1589829545856-d10d557cf95f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80'); background-size: cover; background-position: center; color: white; padding: 5rem 0; text-align: center; }
+        .hero h1 { font-size: 2.8rem; margin-bottom: 1rem; }
+        .hero p { font-size: 1.2rem; max-width: 800px; margin: 0 auto 2rem; }
+        .btn { display: inline-block; background-color: var(--accent); color: white; padding: 12px 28px; border-radius: 5px; text-decoration: none; font-weight: 600; transition: all 0.3s ease; }
+        .btn:hover { background-color: #c0392b; transform: translateY(-3px); box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+        .btn-secondary { background-color: var(--secondary); }
+        .btn-secondary:hover { background-color: #2980b9; }
+        
+        /* Main Content */
+        .main-content { padding: 4rem 0; }
+        .section-title { text-align: center; margin-bottom: 3rem; color: var(--primary); position: relative; }
+        .section-title:after { content: ''; position: absolute; width: 80px; height: 4px; background-color: var(--secondary); bottom: -10px; left: 50%; transform: translateX(-50%); }
+        
+        /* Services */
+        .services { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 2rem; margin-bottom: 4rem; }
+        .service-card { background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.05); transition: all 0.3s ease; }
+        .service-card:hover { transform: translateY(-10px); box-shadow: 0 15px 30px rgba(0,0,0,0.1); }
+        .service-icon { background-color: var(--secondary); color: white; font-size: 2rem; padding: 1.5rem; text-align: center; }
+        .service-content { padding: 1.5rem; }
+        .service-content h3 { color: var(--primary); margin-bottom: 0.8rem; }
+        
+        /* Stats */
+        .stats { background-color: var(--primary); color: white; padding: 3rem 0; margin: 4rem 0; }
+        .stats-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; text-align: center; }
+        .stat-item h3 { font-size: 2.5rem; color: var(--secondary); margin-bottom: 0.5rem; }
+        
+        /* Footer */
+        footer { background-color: var(--dark); color: white; padding: 3rem 0 1.5rem; }
+        .footer-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-bottom: 2rem; }
+        .footer-logo { font-size: 1.8rem; margin-bottom: 1rem; }
+        .footer-column h4 { color: var(--secondary); margin-bottom: 1.2rem; font-size: 1.2rem; }
+        .footer-links { list-style: none; }
+        .footer-links li { margin-bottom: 0.8rem; }
+        .footer-links a { color: #ddd; text-decoration: none; transition: color 0.3s ease; }
+        .footer-links a:hover { color: var(--secondary); }
+        .contact-info { display: flex; align-items: flex-start; margin-bottom: 1rem; }
+        .contact-info i { color: var(--secondary); margin-right: 10px; margin-top: 5px; }
+        .copyright { text-align: center; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.1); font-size: 0.9rem; color: #aaa; }
+        
+        @media (max-width: 768px) {
+            .header-container { flex-direction: column; text-align: center; }
+            .logo { margin-bottom: 1rem; }
+            nav ul { flex-wrap: wrap; justify-content: center; }
+            nav ul li { margin: 0.5rem; }
+            .hero h1 { font-size: 2.2rem; }
+            .mobile-menu-btn { display: block; position: absolute; top: 1rem; right: 1rem; }
+            .mobile-menu { display: none; width: 100%; }
+            .mobile-menu.active { display: block; }
+            .mobile-menu ul { flex-direction: column; margin-top: 1rem; }
+            .mobile-menu ul li { margin: 0.5rem 0; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <i class="fas fa-balance-scale"></i>
+                <h1>LEGAL<span>AID</span> HUB</h1>
+            </div>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav class="mobile-menu" id="mobileMenu">
+                <ul>
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="services.html">Our Services</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="resources.html">Resources</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Free Legal Services for Those in Need</h1>
+            <p>Providing accessible legal assistance to innovators, farmers, artisans, and underserved communities. We offer contract help, land rights protection, business legal services, and more.</p>
+            <a href="contact.html" class="btn">Get Legal Help</a>
+            <a href="services.html" class="btn btn-secondary">Our Services</a>
+        </div>
+    </section>
+
+    <main class="main-content">
+        <div class="container">
+            <h2 class="section-title">How We Can Help You</h2>
+            
+            <div class="services">
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-briefcase"></i></div>
+                    <div class="service-content">
+                        <h3>Business Legal Help</h3>
+                        <p>For educated innovators starting businesses: contract drafting, business registration, intellectual property, and compliance assistance.</p>
+                        <a href="services.html#business" class="btn" style="margin-top: 1rem; padding: 8px 16px; font-size: 0.9rem;">Learn More</a>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-tractor"></i></div>
+                    <div class="service-content">
+                        <h3>Farmers & Land Rights</h3>
+                        <p>Protecting land rights, contract assistance for agricultural agreements, and legal support for farming communities.</p>
+                        <a href="services.html#farmers" class="btn" style="margin-top: 1rem; padding: 8px 16px; font-size: 0.9rem;">Learn More</a>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-hands-helping"></i></div>
+                    <div class="service-content">
+                        <h3>Artisan Support</h3>
+                        <p>Legal assistance for artisans: contract reviews, copyright protection, fair trade agreements, and business formation.</p>
+                        <a href="services.html#artisans" class="btn" style="margin-top: 1rem; padding: 8px 16px; font-size: 0.9rem;">Learn More</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="stats">
+                <div class="container stats-container">
+                    <div class="stat-item"><h3>2,500+</h3><p>People Helped</p></div>
+                    <div class="stat-item"><h3>150+</h3><p>Volunteer Lawyers</p></div>
+                    <div class="stat-item"><h3>85%</h3><p>Success Rate</p></div>
+                    <div class="stat-item"><h3>24/7</h3><p>Online Support</p></div>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 3rem;">
+                <h2 class="section-title">Our Mission</h2>
+                <p style="max-width: 800px; margin: 0 auto 2rem; font-size: 1.1rem;">We believe that access to justice is a fundamental right, not a privilege. LEGAL-AID HUB connects underserved communities with volunteer legal professionals to provide free, quality legal services.</p>
+                <a href="about.html" class="btn">Learn About Our Work</a>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-column">
+                    <div class="footer-logo"><i class="fas fa-balance-scale"></i> LEGAL-AID HUB</div>
+                    <p>Providing free legal services to innovators, farmers, artisans, and underserved communities since 2020.</p>
+                </div>
+                <div class="footer-column">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li><li><a href="about.html">About Us</a></li><li><a href="services.html">Our Services</a></li><li><a href="contact.html">Contact Us</a></li><li><a href="resources.html">Legal Resources</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Our Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="services.html#business">Business Legal Help</a></li><li><a href="services.html#farmers">Farmers & Land Rights</a></li><li><a href="services.html#artisans">Artisan Support</a></li><li><a href="services.html#housing">Housing & Tenancy</a></li><li><a href="services.html#family">Family Law</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Contact Info</h4>
+                    <div class="contact-info"><i class="fas fa-map-marker-alt"></i><div>123 Justice Street, Law City, LC 10101</div></div>
+                    <div class="contact-info"><i class="fas fa-phone"></i><div>+1 (800) 555-LEGAL</div></div>
+                    <div class="contact-info"><i class="fas fa-envelope"></i><div>help@legalaidhub.org</div></div>
+                </div>
+            </div>
+            <div class="copyright"><p>&copy; 2023 LEGAL-AID HUB. All rights reserved.</p></div>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('mobileMenuBtn').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            mobileMenu.classList.toggle('active');
+            const icon = this.querySelector('i');
+            if (icon.classList.contains('fa-bars')) {
+                icon.classList.remove('fa-bars'); icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times'); icon.classList.add('fa-bars');
+            }
+        });
+        document.querySelectorAll('#mobileMenu a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('mobileMenu').classList.remove('active');
+                document.querySelector('#mobileMenuBtn i').classList.remove('fa-times');
+                document.querySelector('#mobileMenuBtn i').classList.add('fa-bars');
+            });
+        });
+    </script>
+</body>
+</html>
